@@ -1,4 +1,4 @@
-# Two models will be developed here to determine the temperature profiles in the solid and melt regions, respectively.
+# Two models are developed here to determine the temperature profiles in the solid and melt regions, respectively.
 # Copyright: Prof. Cheng Luo, University of Texas at Arlington, chengluo@uta.edu
 # After running, the two models are saved as Keras files in the current working directory. 
 # Please refer to the README for instructions on how to upload and reuse them.
@@ -198,7 +198,7 @@ z_interface_analytic = []
 # Loop over r and solve T(r, z) = TthN for z
 for r in r_vals_analytic:
     def f(z):  # Root-finding function: T(r,z) - TthN = 0
-        return analytical_solution_sum100(r, z) - TthN
+        return analytical_solution_sum200(r, z) - TthN
 
     try:
         sol = root_scalar(f, bracket=[0, 1], method='brentq')
@@ -357,3 +357,4 @@ print("Model 1 saved  as 'model1.keras' in the current working directory.")
 # Save Model 2
 model2.save("model2.keras")
 print("Model 2 saved as 'model2.keras' in the current working directory.")
+
